@@ -3,7 +3,7 @@ from mrjob.job import MRJob
 class WordCounter(MRJob):
     def mapper(self, _, line):
         for word in line.split():
-            yield (word, 1)
+            yield (_, 1)
 
     def reducer(self, key, values):
         yield (key, sum(values))
